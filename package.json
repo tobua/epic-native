@@ -46,7 +46,7 @@
     "jsx"
   ],
   "publishConfig": {
-    "provenance": true
+    "provenance": false
   },
   "configuration": {
     "gitignore": [
