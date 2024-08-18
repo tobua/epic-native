@@ -1,0 +1,86 @@
+{
+  "name": "epic-native",
+  "description": "Integration of the EPIC Framework into React Native.",
+  "version": "0.0.0-development",
+  "repository": "github:tobua/epic-native",
+  "license": "CC-BY-NC-4.0",
+  "author": "Matthias Giger",
+  "scripts": {
+    "app": "bun create-app.js",
+    "check": "biome check --write .",
+    "types": "tsc && tsc --noEmit --project ./test/tsconfig.json"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.8.3",
+    "@npmcli/arborist": "^7.5.4",
+    "@types/bun": "^1.1.6",
+    "@types/react": "^18.3.3",
+    "npm-packlist": "^8.0.2",
+    "react": "^18.3.1",
+    "react-native": "^0.75.1",
+    "typescript": "^5.5.4",
+    "zero-configuration": "^0.17.2"
+  },
+  "peerDependencies": {
+    "react-native": ">= 0.75.1"
+  },
+  "trustedDependencies": [
+    "zero-configuration"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./index.tsx",
+  "exports": {
+    ".": "./index.tsx"
+  },
+  "files": [
+    "*.ts",
+    "*.tsx"
+  ],
+  "keywords": [
+    "epic",
+    "native",
+    "framework",
+    "jsx"
+  ],
+  "publishConfig": {
+    "provenance": true
+  },
+  "configuration": {
+    "gitignore": [
+      "extends:recommended",
+      "EpicApp",
+      "app/**/*",
+      "!app/App.tsx"
+    ],
+    "vscode": "biome",
+    "license": "commercial",
+    "biome": {
+      "extends": "recommended",
+      "files": {
+        "ignore": [
+          "app"
+        ]
+      }
+    },
+    "typescript": [
+      {
+        "extends": "plugin",
+        "compilerOptions": {
+          "jsx": "react-jsx"
+        },
+        "files": [
+          "index.tsx"
+        ]
+      },
+      {
+        "extends": "plugin",
+        "folder": "test",
+        "compilerOptions": {
+          "strict": false,
+          "jsx": "react-jsx"
+        }
+      }
+    ]
+  }
+}
